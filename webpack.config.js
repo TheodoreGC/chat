@@ -1,4 +1,5 @@
-const HTMLWebpackPlugin = require('html-webpack-plugin');
+const HTMLWebpackPlugin        = require('html-webpack-plugin');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
   template: __dirname + '/src/index.html',
@@ -6,22 +7,35 @@ const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
   inject: 'body'
 });
 
+const ExtractTextWebpackPluginConfig = new ExtractTextWebpackPlugin({
+  filename: 'bundle.css'
+});
+
 module.exports = {
   entry: __dirname + '/src/index.js',
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.(s*)css$/,
+        exclude: /node_modules/,
+        use: ExtractTextWebpackPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
       }
     ]
   },
   output: {
-    filename: 'transformed.js',
-    path: __dirname + '/build'
+    filename: 'bundle.js',
+    path: __dirname + '/dist'
   },
   plugins: [
-    HTMLWebpackPluginConfig
+    HTMLWebpackPluginConfig,
+    ExtractTextWebpackPluginConfig
   ]
 };

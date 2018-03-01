@@ -1,0 +1,28 @@
+{
+  "messages": [
+    {
+      "username": "John Smith",
+      "content": "Hello!"
+    },
+    {
+      "username": "Bill Smith",
+      "content": "This is the chat app we're building"
+    },
+    {
+      "username": "Bill Smith",
+      "content": "Hope you like it"
+    },
+    {
+      "username": "John Smith",
+      "content": "Don't forget to leave a feedback!"
+    },
+    {
+      "username": "Bill Smith",
+      "content": "I will"
+    },
+    {
+      "username": "John Smith",
+      "content": "Great!"
+    }
+  ]
+}
