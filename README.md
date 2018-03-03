@@ -33,7 +33,7 @@ Installation
 ----
 Download the app with the following command:
 
-	git clone git@bitbucket.org:theodoregarsoncorbeaux/chat.git
+	git clone https://github.com/TheodoreGC/chat.git
 
 Install the application running:
 
